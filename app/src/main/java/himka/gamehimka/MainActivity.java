@@ -5,6 +5,8 @@ import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
+import himka.gamehimka.util.TextToSpeechHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText write;
