@@ -9,12 +9,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LevelSelectionActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="himka.gamehimka.LevelSelection" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SubLevelSelectionActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="himka.gamehimka.SubLevelSelection" />
             </intent-filter>
         </activity>
     </application>
