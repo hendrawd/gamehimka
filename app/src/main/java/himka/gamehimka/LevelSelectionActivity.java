@@ -41,19 +41,19 @@ public class LevelSelectionActivity extends AppCompatActivity implements View.On
         switch (view.getId()) {
             case R.id.button_beginner:
                 //Memasang variable yang akan dipassing ke SubLevelActivity
-                goToSubLevelActivity.putExtra("sublevel", "beginner");
+                goToSubLevelActivity.putExtra("level", "beginner");
                 break;
             case R.id.button_teenager:
                 //Memasang variable yang akan dipassing ke SubLevelActivity
-                goToSubLevelActivity.putExtra("sublevel", "teenager");
+                goToSubLevelActivity.putExtra("level", "teenager");
                 break;
             case R.id.button_moderate:
                 //Memasang variable yang akan dipassing ke SubLevelActivity
-                goToSubLevelActivity.putExtra("sublevel", "moderate");
+                goToSubLevelActivity.putExtra("level", "moderate");
                 break;
             case R.id.button_master:
                 //Memasang variable yang akan dipassing ke SubLevelActivity
-                goToSubLevelActivity.putExtra("sublevel", "master");
+                goToSubLevelActivity.putExtra("level", "master");
                 break;
         }
         startActivity(goToSubLevelActivity);

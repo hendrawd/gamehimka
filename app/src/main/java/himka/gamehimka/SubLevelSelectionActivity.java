@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import himka.gamehimka.question.beginner.BeginnerEasyQuestionListProvider;
+
 public class SubLevelSelectionActivity extends AppCompatActivity {
 
     @Override
@@ -15,28 +17,30 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_level_selection);
 
         //Mendapatkan referensi view dari activity_sub_level_selection.XML
-        ImageView level = (ImageView) findViewById(R.id.level);
+        ImageView imageLevel = (ImageView) findViewById(R.id.level);
         ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
         ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
+        ImageView buttonEasy = (ImageView) findViewById(R.id.button_easy);
+        ImageView buttonHard = (ImageView) findViewById(R.id.button_hard);
 
         //Mendapatkan variable yang dipassing dari LevelActivity
-        String subLevel = getIntent().getStringExtra("sublevel");
-        switch (subLevel) {
+        final String level = getIntent().getStringExtra("level");
+        switch (level) {
             case "beginner":
                 //Set gambar dengan ic_menu_level_beginner
-                level.setImageResource(R.drawable.ic_menu_level_beginner);
+                imageLevel.setImageResource(R.drawable.ic_menu_level_beginner);
                 break;
             case "teenager":
                 //Set gambar dengan ic_menu_level_teenager
-                level.setImageResource(R.drawable.ic_menu_level_teenager);
+                imageLevel.setImageResource(R.drawable.ic_menu_level_teenager);
                 break;
             case "moderate":
                 //Set gambar dengan ic_menu_level_moderate
-                level.setImageResource(R.drawable.ic_menu_level_moderate);
+                imageLevel.setImageResource(R.drawable.ic_menu_level_moderate);
                 break;
             case "master":
                 //Set gambar dengan ic_menu_level_master
-                level.setImageResource(R.drawable.ic_menu_level_master);
+                imageLevel.setImageResource(R.drawable.ic_menu_level_master);
                 break;
         }
 
@@ -55,6 +59,26 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
                 Intent goToHomeActivity = new Intent(SubLevelSelectionActivity.this, HomeActivity.class);
                 startActivity(goToHomeActivity);
                 finish();
+            }
+        });
+
+        buttonEasy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(level.equals("beginner")){
+                    BeginnerEasyQuestionListProvider beginnerEasyQuestionListProvider = new BeginnerEasyQuestionListProvider();
+
+                }
+            }
+        });
+
+        buttonHard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(level.equals("beginner")){
+                    BeginnerEasyQuestionListProvider beginnerEasyQuestionListProvider = new BeginnerEasyQuestionListProvider();
+
+                }
             }
         });
     }

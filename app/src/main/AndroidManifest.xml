@@ -26,11 +26,21 @@
             </intent-filter>
         </activity>
 
+
+
         <activity
             android:name=".SubLevelSelectionActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="himka.gamehimka.SubLevelSelection" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MultipleImageSelectionActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="himka.gamehimka.soal.PilihanGandaActivity" />
             </intent-filter>
         </activity>
     </application>
