@@ -24,7 +24,7 @@ public class MultipleImageSelectionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_question_multiple_image_selection);
+        setContentView(R.layout.fragment_question_multiple_image_selection);
 
         answerContainer = (PredicateLayout) findViewById(R.id.answer_container);
         tvQuestion = (TextView) findViewById(R.id.tv_question);

@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import himka.gamehimka.question.Question;
 import himka.gamehimka.question.QuestionListProvider;
@@ -15,7 +14,7 @@ import himka.gamehimka.question.QuestionListProvider;
 
 public class MasterEasyQuestionListProvider implements QuestionListProvider, Parcelable {
 
-    private List<Question> questionList = new ArrayList<>();
+    private ArrayList<Question> questionList = new ArrayList<>();
 
     public MasterEasyQuestionListProvider() {
         Question question1 = new Question();
@@ -30,7 +29,7 @@ public class MasterEasyQuestionListProvider implements QuestionListProvider, Par
     }
 
     @Override
-    public List<Question> getQuestionList() {
+    public ArrayList<Question> getQuestionList() {
         return questionList;
     }
 

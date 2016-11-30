@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
+import himka.gamehimka.R;
 import himka.gamehimka.question.Question;
 import himka.gamehimka.question.QuestionListProvider;
 
@@ -21,11 +22,19 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
         question1.setQuestion("Ini contoh question1");
         question1.setAnswer("Jawaban");
         question1.setType(Question.TYPE_INPUT);
+        questionList.add(question1);
 
         Question question2 = new Question();
         question2.setQuestion("Ini contoh question2");
+        question2.setSelection(new int[]{
+                R.drawable.ic_kubus1,
+                R.drawable.ic_kubus2,
+                R.drawable.ic_kubus3,
+                R.drawable.ic_kubus4,
+        });
         question2.setAnswer(1);
         question2.setType(Question.TYPE_MULTIPLE_SELECTION);
+        questionList.add(question2);
     }
 
     @Override

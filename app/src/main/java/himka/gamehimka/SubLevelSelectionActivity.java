@@ -65,9 +65,10 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
         buttonEasy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(level.equals("beginner")){
-                    BeginnerEasyQuestionListProvider beginnerEasyQuestionListProvider = new BeginnerEasyQuestionListProvider();
-
+                if (level.equals("beginner")) {
+                    Intent goToEasyQuestionActivity = new Intent(SubLevelSelectionActivity.this, EasyQuestionActivity.class);
+                    goToEasyQuestionActivity.putExtra("level", "beginner");
+                    startActivity(goToEasyQuestionActivity);
                 }
             }
         });
@@ -75,7 +76,7 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
         buttonHard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(level.equals("beginner")){
+                if (level.equals("beginner")) {
                     BeginnerEasyQuestionListProvider beginnerEasyQuestionListProvider = new BeginnerEasyQuestionListProvider();
 
                 }

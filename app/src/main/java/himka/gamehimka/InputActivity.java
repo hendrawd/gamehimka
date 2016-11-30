@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import himka.gamehimka.R;
 import himka.gamehimka.view.CustomToast;
 
 /**
@@ -22,7 +21,7 @@ public class InputActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_question_input);
+        setContentView(R.layout.fragment_question_input);
 
         etAnswer = (EditText) findViewById(R.id.et_answer);
         tvQuestion = (TextView) findViewById(R.id.tv_question);

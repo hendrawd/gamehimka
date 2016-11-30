@@ -11,7 +11,6 @@
         android:adjustViewBounds="true"
         android:id="@+id/sub_level"
         android:src="@drawable/ic_easy"
-        android:layout_below="@id/tv_title"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"

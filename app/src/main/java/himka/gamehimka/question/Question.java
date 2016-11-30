@@ -15,6 +15,8 @@ public class Question {
     //this should be multiple object type
     private Object answer;
 
+    private int[] selection;
+
     public String getType() {
         return type;
     }
@@ -37,5 +39,13 @@ public class Question {
 
     public void setAnswer(Object answer) {
         this.answer = answer;
+    }
+
+    public int[] getSelection() {
+        return selection;
+    }
+
+    public void setSelection(int[] selection) {
+        this.selection = selection;
     }
 }
