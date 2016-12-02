@@ -8,6 +8,7 @@ public class Question {
 
     public static final String TYPE_INPUT = "INPUT";
     public static final String TYPE_MULTIPLE_SELECTION = "MULTIPLE_SELECTION";
+    public static final String TYPE_DRAG_AND_DROP = "DRAG_AND_DROP";
 
     private String type;
     private String question;

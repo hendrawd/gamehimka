@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    tools:context="himka.gamehimka.SubLevelSelectionActivity">
+    tools:context="himka.gamehimka.activity.SubLevelSelectionActivity">
 
     <TextView
         android:id="@+id/tv_title"

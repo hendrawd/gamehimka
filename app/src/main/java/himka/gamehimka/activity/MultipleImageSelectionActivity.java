@@ -1,4 +1,4 @@
-package himka.gamehimka;
+package himka.gamehimka.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import himka.gamehimka.R;
 import himka.gamehimka.view.CustomToast;
 import himka.gamehimka.view.PredicateLayout;
 

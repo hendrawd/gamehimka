@@ -1,4 +1,4 @@
-package himka.gamehimka;
+package himka.gamehimka.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import himka.gamehimka.R;
 import himka.gamehimka.view.CustomToast;
 
 /**

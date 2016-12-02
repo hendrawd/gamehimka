@@ -1,6 +1,8 @@
-package himka.gamehimka;
+package himka.gamehimka.activity;
 
 import android.os.Bundle;
+
+import himka.gamehimka.R;
 
 /**
  * @author hendrawd on 11/29/16

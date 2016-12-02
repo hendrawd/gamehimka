@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_question"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"/>
+        android:orientation="vertical">
 
-    <himka.gamehimka.view.PredicateLayout
-        android:id="@+id/answer_container"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" />
 
-    </himka.gamehimka.view.PredicateLayout>
-</LinearLayout>
+        <himka.gamehimka.view.PredicateLayout
+            android:id="@+id/answer_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+        </himka.gamehimka.view.PredicateLayout>
+    </LinearLayout>
+</ScrollView>

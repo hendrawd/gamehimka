@@ -1,4 +1,4 @@
-package himka.gamehimka;
+package himka.gamehimka.activity;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -7,12 +7,15 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import himka.gamehimka.fragment.QuestionFragment;
+import himka.gamehimka.R;
 import himka.gamehimka.question.Question;
 import himka.gamehimka.question.QuestionListProvider;
 import himka.gamehimka.question.beginner.BeginnerEasyQuestionListProvider;
 import himka.gamehimka.question.master.MasterEasyQuestionListProvider;
 import himka.gamehimka.question.moderate.ModerateEasyQuestionListProvider;
 import himka.gamehimka.question.teenager.TeenagerEasyQuestionListProvider;
+import himka.gamehimka.view.CustomToast;
 
 /**
  * @author hendrawd on 11/30/16
@@ -21,10 +24,13 @@ import himka.gamehimka.question.teenager.TeenagerEasyQuestionListProvider;
 public abstract class QuestionActivity extends Activity {
 
     private ArrayList<Question> questionList;
+    private int index = 0;
+    private int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         QuestionListProvider questionListProvider;
         String level = getIntent().getStringExtra("level");
         switch (level) {
@@ -43,6 +49,7 @@ public abstract class QuestionActivity extends Activity {
                 break;
         }
         questionList = questionListProvider.getQuestionList();
+
         createFragment();
     }
 
@@ -55,6 +62,16 @@ public abstract class QuestionActivity extends Activity {
     }
 
     public Question getQuestion() {
-        return questionList.remove(0);
+        return questionList.get(index);
+    }
+
+    public void createNextQuestion(int score) {
+        this.score += score;
+        index++;
+        if (index < questionList.size()) {
+            createFragment();
+        } else {
+            CustomToast.show(this, "Pertanyaan habis, skor kamu adalah: " + this.score);
+        }
     }
 }

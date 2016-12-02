@@ -18,23 +18,27 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
     private ArrayList<Question> questionList = new ArrayList<>();
 
     public BeginnerEasyQuestionListProvider() {
-        Question question1 = new Question();
-        question1.setQuestion("Ini contoh question1");
-        question1.setAnswer("Jawaban");
-        question1.setType(Question.TYPE_INPUT);
-        questionList.add(question1);
+        for (int i = 0; i < 3; i++) {
+            Question question1 = new Question();
+            question1.setQuestion("Ini contoh question1");
+            question1.setAnswer("Jawaban");
+            question1.setType(Question.TYPE_INPUT);
+            questionList.add(question1);
+        }
 
-        Question question2 = new Question();
-        question2.setQuestion("Ini contoh question2");
-        question2.setSelection(new int[]{
-                R.drawable.ic_kubus1,
-                R.drawable.ic_kubus2,
-                R.drawable.ic_kubus3,
-                R.drawable.ic_kubus4,
-        });
-        question2.setAnswer(1);
-        question2.setType(Question.TYPE_MULTIPLE_SELECTION);
-        questionList.add(question2);
+        for (int i = 0; i < 3; i++) {
+            Question question2 = new Question();
+            question2.setQuestion("Ini contoh question2");
+            question2.setSelection(new int[]{
+                    R.drawable.ic_kubus1,
+                    R.drawable.ic_kubus2,
+                    R.drawable.ic_kubus3,
+                    R.drawable.ic_kubus4,
+            });
+            question2.setAnswer(1);
+            question2.setType(Question.TYPE_MULTIPLE_SELECTION);
+            questionList.add(question2);
+        }
     }
 
     @Override

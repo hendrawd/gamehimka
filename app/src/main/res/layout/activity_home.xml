@@ -10,7 +10,7 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                tools:context="himka.gamehimka.HomeActivity">
+                tools:context="himka.gamehimka.activity.HomeActivity">
 
     <ImageView
         android:id="@+id/iv_math_play"

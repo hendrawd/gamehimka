@@ -1,4 +1,4 @@
-package himka.gamehimka;
+package himka.gamehimka.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import himka.gamehimka.R;
 import himka.gamehimka.question.beginner.BeginnerEasyQuestionListProvider;
 
 public class SubLevelSelectionActivity extends AppCompatActivity {

@@ -5,7 +5,7 @@
                 android:layout_width="match_parent"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                tools:context="himka.gamehimka.SubLevelSelectionActivity">
+                tools:context="himka.gamehimka.activity.SubLevelSelectionActivity">
 
     <ImageView
         android:adjustViewBounds="true"
@@ -46,6 +46,7 @@
 
         <!--we don't use fragment here, because it will error if assigned programmatically-->
         <FrameLayout
+            android:background="@android:color/white"
             android:id="@+id/fragment"
             android:layout_height="match_parent"
             android:layout_weight="2"
