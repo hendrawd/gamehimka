@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import himka.gamehimka.R;
-import himka.gamehimka.question.beginner.BeginnerEasyQuestionListProvider;
 
 public class SubLevelSelectionActivity extends AppCompatActivity {
 
@@ -78,7 +77,6 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (level.equals("beginner")) {
-                    BeginnerEasyQuestionListProvider beginnerEasyQuestionListProvider = new BeginnerEasyQuestionListProvider();
 
                 }
             }

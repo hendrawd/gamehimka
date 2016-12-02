@@ -44,11 +44,12 @@ public class TestActivity extends Activity {
         imageView3.setTag(R.drawable.ic_sandwich);
 
         View.OnLongClickListener dragTrigger = new View.OnLongClickListener() {
+            @SuppressWarnings("deprecation")
             @Override
             public boolean onLongClick(View view) {
                 ClipData.Item item = new ClipData.Item(view.getTag() + "");
                 ClipData dragData = new ClipData(view.getTag() + "", new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
-                View.DragShadowBuilder viewShadow = new View.DragShadowBuilder(imageView1);
+                View.DragShadowBuilder viewShadow = new View.DragShadowBuilder(view);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     view.startDragAndDrop(dragData, viewShadow, null, 0);
                 } else {

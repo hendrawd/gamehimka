@@ -16,7 +16,9 @@ public class Question {
     //this should be multiple object type
     private Object answer;
 
-    private int[] selection;
+    private int[] imageResources;
+
+    private boolean useSound;
 
     public String getType() {
         return type;
@@ -42,11 +44,19 @@ public class Question {
         this.answer = answer;
     }
 
-    public int[] getSelection() {
-        return selection;
+    public int[] getImageResources() {
+        return imageResources;
     }
 
-    public void setSelection(int[] selection) {
-        this.selection = selection;
+    public void setImageResources(int[] imageResources) {
+        this.imageResources = imageResources;
+    }
+
+    public boolean isUseSound() {
+        return useSound;
+    }
+
+    public void setUseSound(boolean useSound) {
+        this.useSound = useSound;
     }
 }
