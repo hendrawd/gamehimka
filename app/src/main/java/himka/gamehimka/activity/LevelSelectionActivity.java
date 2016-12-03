@@ -1,12 +1,14 @@
 package himka.gamehimka.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import himka.gamehimka.R;
+import himka.gamehimka.util.PreferenceHelper;
 
 public class LevelSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,11 +27,25 @@ public class LevelSelectionActivity extends AppCompatActivity implements View.On
         ImageView buttonModerate = (ImageView) findViewById(R.id.button_moderate);
         ImageView buttonMaster = (ImageView) findViewById(R.id.button_master);
 
+        int level = PreferenceHelper.getLevel(this);
+
         //Memasang click listener ke kelas ini sendiri yang akan di tangani oleh method onClick(View view)
         buttonBeginner.setOnClickListener(this);
-        buttonTeenager.setOnClickListener(this);
-        buttonModerate.setOnClickListener(this);
-        buttonMaster.setOnClickListener(this);
+        if (level < 2) {
+            buttonTeenager.setColorFilter(Color.GRAY);
+        } else {
+            buttonTeenager.setOnClickListener(this);
+        }
+        if (level < 4) {
+            buttonModerate.setColorFilter(Color.GRAY);
+        } else {
+            buttonModerate.setOnClickListener(this);
+        }
+        if (level < 6) {
+            buttonMaster.setColorFilter(Color.GRAY);
+        } else {
+            buttonMaster.setOnClickListener(this);
+        }
     }
 
     /**

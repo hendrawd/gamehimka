@@ -47,7 +47,7 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mainContent = null;
         Question question = ((QuestionActivity) getActivity()).getQuestion();
-        if(question.isUseSound()){
+        if (question.isUseSound()) {
             if (!TextUtils.isEmpty(question.getQuestion())) {
                 if (textToSpeechHelper == null) {
                     textToSpeechHelper = new TextToSpeechHelper();
@@ -74,22 +74,35 @@ public class QuestionFragment extends Fragment {
 
         final EditText etAnswer = (EditText) mainContent.findViewById(R.id.et_answer);
         TextView tvQuestion = (TextView) mainContent.findViewById(R.id.tv_question);
+        PredicateLayout questionContainer = (PredicateLayout) mainContent.findViewById(R.id.question_container);
         Button bAnswer = (Button) mainContent.findViewById(R.id.b_answer);
 
         tvQuestion.setText(question.getQuestion());
+
+        int[] resourceIds = question.getImageResources();
+        if (resourceIds != null) {
+            for (int resourceId : resourceIds) {
+                ImageView imageView = (ImageView) inflater.inflate(R.layout.layout_simple_image, null);
+                imageView.setImageResource(resourceId);
+                questionContainer.addView(imageView);
+            }
+        }
+
         bAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userAnswer = etAnswer.getText().toString();
                 if (TextUtils.isEmpty(userAnswer)) {
-                    CustomToast.show(getActivity(), "Silakan isi jawaban");
+                    CustomToast.show(getActivity(), getString(R.string.please_answer));
                 } else {
                     //cek jawaban
-                    if (question.getAnswer().equals(userAnswer)) {
-                        CustomToast.show(getActivity(), "Jawaban kamu benar");
+                    userAnswer = userAnswer.trim().replace(" ", "").toLowerCase();
+                    String theRightAnswer = question.getAnswer().toString().trim().replace(" ", "").toLowerCase();
+                    if (theRightAnswer.equals(userAnswer)) {
+                        CustomToast.show(getActivity(), getString(R.string.answer_right));
                         ((QuestionActivity) getActivity()).createNextQuestion(10);
                     } else {
-                        CustomToast.show(getActivity(), "Jawaban kamu salah");
+                        CustomToast.show(getActivity(), getString(R.string.answer_wrong));
                         ((QuestionActivity) getActivity()).createNextQuestion(0);
                     }
                 }
@@ -119,10 +132,10 @@ public class QuestionFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if (finalI == answerIndex) {
-                        CustomToast.show(getActivity(), "Jawaban kamu benar");
+                        CustomToast.show(getActivity(), getString(R.string.answer_right));
                         ((QuestionActivity) getActivity()).createNextQuestion(10);
                     } else {
-                        CustomToast.show(getActivity(), "Jawaban kamu salah");
+                        CustomToast.show(getActivity(), getString(R.string.answer_wrong));
                         ((QuestionActivity) getActivity()).createNextQuestion(0);
                     }
                 }
@@ -174,7 +187,7 @@ public class QuestionFragment extends Fragment {
                 for (int j = 0; j < answerContainer.getChildCount(); j++) {
                     ImageView answerView = (ImageView) answerContainer.getChildAt(j);
                     if (answerView.getTag() == null) {
-                        CustomToast.show(getActivity(), "Silakan isi jawaban");
+                        CustomToast.show(getActivity(), getString(R.string.please_answer));
                         return;
                     }
                     int resourceId = (int) answerView.getTag();
@@ -183,10 +196,10 @@ public class QuestionFragment extends Fragment {
                     }
                 }
                 if (isAnswerCorrect) {
-                    CustomToast.show(getActivity(), "Jawaban kamu benar");
+                    CustomToast.show(getActivity(), getString(R.string.answer_right));
                     ((QuestionActivity) getActivity()).createNextQuestion(10);
                 } else {
-                    CustomToast.show(getActivity(), "Jawaban kamu salah");
+                    CustomToast.show(getActivity(), getString(R.string.answer_wrong));
                     ((QuestionActivity) getActivity()).createNextQuestion(0);
                 }
             }

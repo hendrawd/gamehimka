@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
+import himka.gamehimka.R;
 import himka.gamehimka.question.Question;
 import himka.gamehimka.question.QuestionListProvider;
 
@@ -17,46 +18,94 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
     private ArrayList<Question> questionList = new ArrayList<>();
 
     public BeginnerEasyQuestionListProvider() {
-//        for (int i = 0; i < 3; i++) {
-//            Question question1 = new Question();
-//            question1.setQuestion("Ini contoh question1");
-//            question1.setAnswer("Jawaban");
-//            question1.setType(Question.TYPE_INPUT);
-//            questionList.add(question1);
-//        }
+        questionList.add(createQuestion1());
+        questionList.add(createQuestion2());
+        questionList.add(createQuestion3());
+        questionList.add(createQuestion4());
+        questionList.add(createQuestion5());
 
-//        for (int i = 0; i < 3; i++) {
-//            Question question2 = new Question();
-//            question2.setQuestion("Ini contoh question2");
-//            question2.setImageResources(new int[]{
-//                    R.drawable.ic_kubus1,
-//                    R.drawable.ic_kubus2,
-//                    R.drawable.ic_kubus3,
-//                    R.drawable.ic_kubus4,
-//            });
-//            question2.setAnswer(1);
-//            question2.setType(Question.TYPE_MULTIPLE_SELECTION);
-//            questionList.add(question2);
-//        }
+    }
 
-//        Question questionDragAndDrop = new Question();
-//        questionDragAndDrop.setQuestion("Mbah marijan pergi ke sawah sama mas kipli");
-//        questionDragAndDrop.setImageResources(new int[]{
-//                R.drawable.ic_paint,//first half items will be the items that dragged
-//                R.drawable.ic_ball,
-//                R.drawable.ic_sandwich,
-//
-//                R.drawable.ic_circle,//second half items will be the item that listen the drag
-//                R.drawable.ic_triangle,
-//                R.drawable.ic_rectangle,
-//        });
-//        questionDragAndDrop.setAnswer(new int[]{
-//                R.drawable.ic_ball,
-//                R.drawable.ic_sandwich,
-//                R.drawable.ic_paint
-//        });
-//        questionDragAndDrop.setType(Question.TYPE_DRAG_AND_DROP);
-//        questionList.add(questionDragAndDrop);
+    private Question createQuestion5() {
+        Question questionInput = new Question();
+        questionInput.setQuestion("5. Mira pergi ke pasar untuk berbelanja bersama ibunya. Mira membawakan tas belanja(gambar1) yang berbentuk (jawaban1). Mereka berjalan kaki menuju pasar. Sesampainya di pasar, Mira melihat berbagai macam makanan dengan banyak bentuk, ada jeruk(gambar2) yang berbentuk (jawaban2), ada roti(gambar3) yang berbentuk (jawaban3). Selain Makanan di sanapun ada layangan(gambar4), yang seperti namanya, bentuknya pun bernama (jawaban4). Mira pun pulang dengan membawa banyak makanan dan mainan ke rumah. Isi jawaban di kotak bawah dengan pemisah koma");
+        questionInput.setImageResources(new int[]{
+                R.drawable.ic_bag,
+                R.drawable.ic_orange,
+                R.drawable.ic_bread,
+                R.drawable.ic_kites,
+        });
+        questionInput.setAnswer("persegi,lingkaran,persegi panjang,layang-layang");
+        questionInput.setType(Question.TYPE_INPUT);
+        return questionInput;
+    }
+
+    private Question createQuestion4() {
+        Question questionDragAndDrop = new Question();
+        questionDragAndDrop.setQuestion("4. Letakkanlah segitiga di kotak nomor 2, sementara trapesium di kotak setelahnya dan belah ketupat di kotak nomor 1");
+        questionDragAndDrop.setImageResources(new int[]{
+                R.drawable.ic_blue_triangle,//first half items will be the items that dragged
+                R.drawable.ic_yellow_rhombus,
+                R.drawable.ic_brown_trapesium,
+
+                R.drawable.ic_rectangle,//second half items will be the item that listen the drag
+                R.drawable.ic_rectangle,
+                R.drawable.ic_rectangle,
+        });
+        questionDragAndDrop.setAnswer(new int[]{
+                R.drawable.ic_yellow_rhombus,
+                R.drawable.ic_blue_triangle,
+                R.drawable.ic_brown_trapesium
+        });
+        questionDragAndDrop.setType(Question.TYPE_DRAG_AND_DROP);
+        questionDragAndDrop.setUseSound(true);
+        return questionDragAndDrop;
+    }
+
+    private Question createQuestion3() {
+        Question questionDragAndDrop = new Question();
+        questionDragAndDrop.setQuestion("3. Drag dan drop benda di bawah sesuai dengan bentuknya");
+        questionDragAndDrop.setImageResources(new int[]{
+                R.drawable.ic_paint,//first half items will be the items that dragged
+                R.drawable.ic_ball,
+                R.drawable.ic_sandwich,
+
+                R.drawable.ic_circle,//second half items will be the item that listen the drag
+                R.drawable.ic_triangle,
+                R.drawable.ic_rectangle,
+        });
+        questionDragAndDrop.setAnswer(new int[]{
+                R.drawable.ic_ball,
+                R.drawable.ic_sandwich,
+                R.drawable.ic_paint
+        });
+        questionDragAndDrop.setType(Question.TYPE_DRAG_AND_DROP);
+        return questionDragAndDrop;
+    }
+
+    private Question createQuestion2() {
+        Question question2 = new Question();
+        question2.setQuestion("2. Siapakan aku");
+        question2.setImageResources(new int[]{
+                R.drawable.ic_red_circle,
+        });
+        question2.setAnswer("Lingkaran");
+        question2.setType(Question.TYPE_INPUT);
+        return question2;
+    }
+
+    private Question createQuestion1() {
+        Question question1 = new Question();
+        question1.setQuestion("1. Manakah yang bukan merupakan bangun ruang segi empat?");
+        question1.setImageResources(new int[]{
+                R.drawable.ic_purple_rectangular,
+                R.drawable.ic_blue_triangle,
+                R.drawable.ic_yellow_square,
+                R.drawable.ic_yellow_rhombus,
+        });
+        question1.setAnswer(1);
+        question1.setType(Question.TYPE_MULTIPLE_SELECTION);
+        return question1;
     }
 
     @Override

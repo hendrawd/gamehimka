@@ -9,12 +9,12 @@ import himka.gamehimka.R;
  * TODO tambah skor di kanan atas
  */
 
-public class EasyQuestionActivity extends QuestionActivity {
+public class HardQuestionActivity extends QuestionActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_easy_question);
-        setSubLevel("easy");
+        setContentView(R.layout.activity_hard_question);
+        setSubLevel("hard");
         super.onCreate(savedInstanceState);
     }
 }

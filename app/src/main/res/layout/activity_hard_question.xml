@@ -15,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/ic_easy" />
+        android:src="@drawable/ic_hard" />
 
     <ImageView
         android:id="@+id/button_home"

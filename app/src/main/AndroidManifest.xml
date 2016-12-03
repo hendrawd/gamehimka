@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="himka.gamehimka">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -43,10 +46,26 @@
         </activity>
 
         <activity
+            android:name=".activity.HardQuestionActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="himka.gamehimka.HardQuestionActivity" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".activity.MultipleImageSelectionActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="himka.gamehimka.soal.PilihanGandaActivity" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.SpeechToTextExampleActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="himka.gamehimka.soal.SpeechToTextExampleActivity" />
             </intent-filter>
         </activity>
 

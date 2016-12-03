@@ -1,12 +1,14 @@
 package himka.gamehimka.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import himka.gamehimka.R;
+import himka.gamehimka.util.PreferenceHelper;
 
 public class SubLevelSelectionActivity extends AppCompatActivity {
 
@@ -65,21 +67,26 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
         buttonEasy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (level.equals("beginner")) {
-                    Intent goToEasyQuestionActivity = new Intent(SubLevelSelectionActivity.this, EasyQuestionActivity.class);
-                    goToEasyQuestionActivity.putExtra("level", "beginner");
-                    startActivity(goToEasyQuestionActivity);
-                }
+                Intent goToEasyQuestionActivity = new Intent(SubLevelSelectionActivity.this, EasyQuestionActivity.class);
+                goToEasyQuestionActivity.putExtra("level", level);
+                startActivity(goToEasyQuestionActivity);
+                finish();
             }
         });
 
-        buttonHard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (level.equals("beginner")) {
-
+        int savedLevel = PreferenceHelper.getLevel(this);
+        if (savedLevel % 2 == 0) {
+            buttonHard.setColorFilter(Color.GRAY);
+        } else {
+            buttonHard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goToHardQuestionActivity = new Intent(SubLevelSelectionActivity.this, HardQuestionActivity.class);
+                        goToHardQuestionActivity.putExtra("level", level);
+                    startActivity(goToHardQuestionActivity);
+                    finish();
                 }
-            }
-        });
+            });
+        }
     }
 }
