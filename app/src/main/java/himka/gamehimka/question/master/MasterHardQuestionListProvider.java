@@ -39,7 +39,7 @@ public class MasterHardQuestionListProvider implements QuestionListProvider {
     private Question createQuestion4() {
         Question questionMultipleSelection = new Question();
         questionMultipleSelection.setQuestion("4. Gambar untuk grafik dari fungsi y = x² – 4x + 3");
-        questionMultipleSelection.setQuestionImageResources(new int[]{
+        questionMultipleSelection.setAnswerImageResources(new int[]{
                 R.drawable.ic_answer_function_graphic1,
                 R.drawable.ic_answer_function_graphic2,
                 R.drawable.ic_answer_function_graphic3,
