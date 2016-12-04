@@ -1,8 +1,5 @@
 package himka.gamehimka.question.teenager;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
 import himka.gamehimka.R;
@@ -13,7 +10,7 @@ import himka.gamehimka.question.QuestionListProvider;
  * @author hendrawd on 11/29/16
  */
 
-public class TeenagerEasyQuestionListProvider implements QuestionListProvider, Parcelable {
+public class TeenagerEasyQuestionListProvider implements QuestionListProvider {
 
     private ArrayList<Question> questionList = new ArrayList<>();
 
@@ -31,7 +28,7 @@ public class TeenagerEasyQuestionListProvider implements QuestionListProvider, P
         questionInput.setQuestion("5. Terdapat sepuluh titik pada suatu lingkaran diberi nomor 1 - 10. " +
                 "Seekor katak melompat searah jarum jam satu satuan jika katak berada pada nomor prima dan tiga satuan jika bukan prima. " +
                 "Jika mula - mula katak berada pada poisis nomor 1, dimanakah posisi katak setelah 2014 kali?");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_question_10_numbers
         });
         questionInput.setAnswer("7");
@@ -42,7 +39,7 @@ public class TeenagerEasyQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion4() {
         Question questionInput = new Question();
         questionInput.setQuestion("4. Berapa banyak bangun segitiga yang terbentuk pada gambar di bawah ini?");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_yellow_square_x
         });
         questionInput.setAnswer("4");
@@ -53,7 +50,7 @@ public class TeenagerEasyQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion3() {
         Question questionInput = new Question();
         questionInput.setQuestion("3. Jika jarak kota A ke kota B adalah 5cm dengan skala 1 : 1.000.000, maka jarak kedua kota tersebut sebenarnya adalah ... Km");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_question_map
         });
         questionInput.setAnswer("500");
@@ -72,7 +69,7 @@ public class TeenagerEasyQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion1() {
         Question questionInput = new Question();
         questionInput.setQuestion("1. Urutkanlah pecahan berikut hingga sesuai urutannya!");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_question_fraction
         });
         questionInput.setAnswer("1/7,4/7,5/7");
@@ -85,30 +82,4 @@ public class TeenagerEasyQuestionListProvider implements QuestionListProvider, P
         return questionList;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.questionList);
-    }
-
-    protected TeenagerEasyQuestionListProvider(Parcel in) {
-        this.questionList = new ArrayList<Question>();
-        in.readList(this.questionList, Question.class.getClassLoader());
-    }
-
-    public static final Creator<TeenagerEasyQuestionListProvider> CREATOR = new Creator<TeenagerEasyQuestionListProvider>() {
-        @Override
-        public TeenagerEasyQuestionListProvider createFromParcel(Parcel source) {
-            return new TeenagerEasyQuestionListProvider(source);
-        }
-
-        @Override
-        public TeenagerEasyQuestionListProvider[] newArray(int size) {
-            return new TeenagerEasyQuestionListProvider[size];
-        }
-    };
 }

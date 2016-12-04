@@ -75,18 +75,54 @@ public class SubLevelSelectionActivity extends AppCompatActivity {
         });
 
         int savedLevel = PreferenceHelper.getLevel(this);
-        if (savedLevel % 2 == 0) {
-            buttonHard.setColorFilter(Color.GRAY);
-        } else {
-            buttonHard.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent goToHardQuestionActivity = new Intent(SubLevelSelectionActivity.this, HardQuestionActivity.class);
-                        goToHardQuestionActivity.putExtra("level", level);
-                    startActivity(goToHardQuestionActivity);
-                    finish();
+
+        //menentukan state dari button, kalau belum memenuhi level, maka warna akan menjadi Gray
+        //beginner threshold 1
+        //teenager 3
+        //moderate 5
+        //master 7
+        switch (level) {
+            case "beginner":
+                if (savedLevel < 1) {
+                    buttonHard.setColorFilter(Color.GRAY);
+                } else {
+                    setButtonHardClick(buttonHard, level);
                 }
-            });
+                break;
+            case "teenager":
+                if (savedLevel < 3) {
+                    buttonHard.setColorFilter(Color.GRAY);
+                } else {
+                    setButtonHardClick(buttonHard, level);
+                }
+                break;
+            case "moderate":
+                if (savedLevel < 5) {
+                    buttonHard.setColorFilter(Color.GRAY);
+                } else {
+                    setButtonHardClick(buttonHard, level);
+                }
+                break;
+            case "master":
+                if (savedLevel < 7) {
+                    buttonHard.setColorFilter(Color.GRAY);
+                } else {
+                    setButtonHardClick(buttonHard, level);
+                }
+                break;
         }
     }
+
+    private void setButtonHardClick(ImageView buttonHard, final String level) {
+        buttonHard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToHardQuestionActivity = new Intent(SubLevelSelectionActivity.this, HardQuestionActivity.class);
+                goToHardQuestionActivity.putExtra("level", level);
+                startActivity(goToHardQuestionActivity);
+                finish();
+            }
+        });
+    }
+
 }

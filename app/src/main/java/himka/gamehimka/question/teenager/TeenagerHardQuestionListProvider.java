@@ -1,8 +1,5 @@
 package himka.gamehimka.question.teenager;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
 import himka.gamehimka.R;
@@ -13,7 +10,7 @@ import himka.gamehimka.question.QuestionListProvider;
  * @author hendrawd on 11/29/16
  */
 
-public class TeenagerHardQuestionListProvider implements QuestionListProvider, Parcelable {
+public class TeenagerHardQuestionListProvider implements QuestionListProvider {
 
     private ArrayList<Question> questionList = new ArrayList<>();
 
@@ -28,7 +25,7 @@ public class TeenagerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion5() {
         Question questionInput = new Question();
         questionInput.setQuestion("5. Jika yang mempunyai hobi menari sebanyak 20 siswa, maka yang mempunyai hobi membaca ada ... siswa");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_question_diagram
         });
         questionInput.setAnswer("25");
@@ -39,7 +36,7 @@ public class TeenagerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion4() {
         Question questionInput = new Question();
         questionInput.setQuestion("4. Banyak titik pada pola terakhir adalah");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_question_triangle_pattern
         });
         questionInput.setAnswer("21");
@@ -50,7 +47,7 @@ public class TeenagerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion3() {
         Question questionInput = new Question();
         questionInput.setQuestion("3. Segitiga mana sajakah yang kongruen? Contoh format jawaban: \n3 dengan 7, 1 dengan 2");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_question_congruent_triangle
         });
         questionInput.setAnswer("3 dengan 7, 6 dengan 8");
@@ -61,7 +58,7 @@ public class TeenagerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion2() {
         Question questionDragAndDrop = new Question();
         questionDragAndDrop.setQuestion("2. Drag dan drop operasi himpunan di bawah agar sesuai");
-        questionDragAndDrop.setImageResources(new int[]{
+        questionDragAndDrop.setQuestionImageResources(new int[]{
                 R.drawable.ic_answer_intersection,//first half items will be the items that dragged
                 R.drawable.ic_answer_union,
                 R.drawable.ic_answer_union_no_match,
@@ -92,30 +89,4 @@ public class TeenagerHardQuestionListProvider implements QuestionListProvider, P
         return questionList;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.questionList);
-    }
-
-    protected TeenagerHardQuestionListProvider(Parcel in) {
-        this.questionList = new ArrayList<Question>();
-        in.readList(this.questionList, Question.class.getClassLoader());
-    }
-
-    public static final Creator<TeenagerHardQuestionListProvider> CREATOR = new Creator<TeenagerHardQuestionListProvider>() {
-        @Override
-        public TeenagerHardQuestionListProvider createFromParcel(Parcel source) {
-            return new TeenagerHardQuestionListProvider(source);
-        }
-
-        @Override
-        public TeenagerHardQuestionListProvider[] newArray(int size) {
-            return new TeenagerHardQuestionListProvider[size];
-        }
-    };
 }

@@ -18,6 +18,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import himka.gamehimka.R;
 import himka.gamehimka.activity.QuestionActivity;
 import himka.gamehimka.question.Question;
@@ -73,13 +76,17 @@ public class QuestionFragment extends Fragment {
         View mainContent = inflater.inflate(R.layout.fragment_question_input, container, false);
 
         final EditText etAnswer = (EditText) mainContent.findViewById(R.id.et_answer);
-        TextView tvQuestion = (TextView) mainContent.findViewById(R.id.tv_question);
+        final TextView tvQuestion = (TextView) mainContent.findViewById(R.id.tv_question);
         PredicateLayout questionContainer = (PredicateLayout) mainContent.findViewById(R.id.question_container);
         Button bAnswer = (Button) mainContent.findViewById(R.id.b_answer);
 
+        //check if use countdown timer
+        final Timer timer = new Timer();
+        checkIfUseTime(question, timer);
+
         tvQuestion.setText(question.getQuestion());
 
-        int[] resourceIds = question.getImageResources();
+        int[] resourceIds = question.getQuestionImageResources();
         if (resourceIds != null) {
             for (int resourceId : resourceIds) {
                 ImageView imageView = (ImageView) inflater.inflate(R.layout.layout_simple_image, null);
@@ -105,6 +112,10 @@ public class QuestionFragment extends Fragment {
                         CustomToast.show(getActivity(), getString(R.string.answer_wrong));
                         ((QuestionActivity) getActivity()).createNextQuestion(0);
                     }
+
+                    //make sure to reset the time
+                    ((QuestionActivity) getActivity()).setTimeLeft("");
+                    timer.cancel();
                 }
             }
         });
@@ -115,17 +126,31 @@ public class QuestionFragment extends Fragment {
     private View createMultipleSelectionFragment(LayoutInflater inflater, ViewGroup container, Question question) {
         View mainContent = inflater.inflate(R.layout.fragment_question_multiple_image_selection, container, false);
 
+        PredicateLayout questionContainer = (PredicateLayout) mainContent.findViewById(R.id.question_container);
         PredicateLayout answerContainer = (PredicateLayout) mainContent.findViewById(R.id.answer_container);
         TextView tvQuestion = (TextView) mainContent.findViewById(R.id.tv_question);
 
-        int[] resourceIds = question.getImageResources();
+        //check if use countdown timer
+        final Timer timer = new Timer();
+        checkIfUseTime(question, timer);
 
+        int[] questionResourceIds = question.getQuestionImageResources();
+        int[] answerResourceIds = question.getAnswerImageResources();
         final int answerIndex = (int) question.getAnswer();
 
         tvQuestion.setText(question.getQuestion());
-        for (int i = 0; i < resourceIds.length; i++) {
+
+        if (questionResourceIds != null) {
+            for (int resourceId : questionResourceIds) {
+                ImageView imageView = (ImageView) inflater.inflate(R.layout.layout_simple_image, null);
+                imageView.setImageResource(resourceId);
+                questionContainer.addView(imageView);
+            }
+        }
+
+        for (int i = 0; i < answerResourceIds.length; i++) {
             ImageView imageView = (ImageView) inflater.inflate(R.layout.layout_answer_image, null);
-            imageView.setImageResource(resourceIds[i]);
+            imageView.setImageResource(answerResourceIds[i]);
 
             final int finalI = i;
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +163,10 @@ public class QuestionFragment extends Fragment {
                         CustomToast.show(getActivity(), getString(R.string.answer_wrong));
                         ((QuestionActivity) getActivity()).createNextQuestion(0);
                     }
+
+                    //make sure to reset the time
+                    ((QuestionActivity) getActivity()).setTimeLeft("");
+                    timer.cancel();
                 }
             });
             answerContainer.addView(imageView);
@@ -154,7 +183,11 @@ public class QuestionFragment extends Fragment {
         final PredicateLayout answerContainer = (PredicateLayout) mainContent.findViewById(R.id.answer_container);
         Button bAnswer = (Button) mainContent.findViewById(R.id.b_answer);
 
-        int[] resourceIds = question.getImageResources();
+        //check if use countdown timer
+        final Timer timer = new Timer();
+        checkIfUseTime(question, timer);
+
+        int[] resourceIds = question.getQuestionImageResources();
 
         tvQuestion.setText(question.getQuestion());
 
@@ -198,9 +231,17 @@ public class QuestionFragment extends Fragment {
                 if (isAnswerCorrect) {
                     CustomToast.show(getActivity(), getString(R.string.answer_right));
                     ((QuestionActivity) getActivity()).createNextQuestion(10);
+
+                    //make sure to reset the time
+                    ((QuestionActivity) getActivity()).setTimeLeft("");
+                    timer.cancel();
                 } else {
                     CustomToast.show(getActivity(), getString(R.string.answer_wrong));
                     ((QuestionActivity) getActivity()).createNextQuestion(0);
+
+                    //make sure to reset the time
+                    ((QuestionActivity) getActivity()).setTimeLeft("");
+                    timer.cancel();
                 }
             }
         });
@@ -279,6 +320,36 @@ public class QuestionFragment extends Fragment {
                 return false;
             }
         };
+    }
+
+    private void checkIfUseTime(final Question question, final Timer timer) {
+        if (question.getTime() > 0) {
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    final int timeLeft = question.getTime();
+                    if (timeLeft == 0) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((QuestionActivity) getActivity()).setTimeLeft("");
+                                ((QuestionActivity) getActivity()).createNextQuestion(0);
+                                CustomToast.show(getActivity(), getString(R.string.time_has_run_out));
+                            }
+                        });
+                        timer.cancel();
+                    } else {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((QuestionActivity) getActivity()).setTimeLeft(timeLeft + "");
+                            }
+                        });
+                        question.setTime(timeLeft - 1);
+                    }
+                }
+            }, 0, 1000);
+        }
     }
 
 }

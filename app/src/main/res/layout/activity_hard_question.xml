@@ -42,6 +42,16 @@
         android:textStyle="bold"
         tools:ignore="RtlHardcoded" />
 
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

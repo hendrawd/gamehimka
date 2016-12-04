@@ -1,8 +1,5 @@
 package himka.gamehimka.question.beginner;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
 import himka.gamehimka.R;
@@ -13,7 +10,7 @@ import himka.gamehimka.question.QuestionListProvider;
  * @author hendrawd on 11/29/16
  */
 
-public class BeginnerEasyQuestionListProvider implements QuestionListProvider, Parcelable {
+public class BeginnerEasyQuestionListProvider implements QuestionListProvider{
 
     private ArrayList<Question> questionList = new ArrayList<>();
 
@@ -29,7 +26,7 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion5() {
         Question questionInput = new Question();
         questionInput.setQuestion("5. Mira pergi ke pasar untuk berbelanja bersama ibunya. Mira membawakan tas belanja(gambar1) yang berbentuk (jawaban1). Mereka berjalan kaki menuju pasar. Sesampainya di pasar, Mira melihat berbagai macam makanan dengan banyak bentuk, ada jeruk(gambar2) yang berbentuk (jawaban2), ada roti(gambar3) yang berbentuk (jawaban3). Selain Makanan di sanapun ada layangan(gambar4), yang seperti namanya, bentuknya pun bernama (jawaban4). Mira pun pulang dengan membawa banyak makanan dan mainan ke rumah. Isi jawaban di kotak bawah dengan pemisah koma");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_bag,
                 R.drawable.ic_orange,
                 R.drawable.ic_bread,
@@ -43,7 +40,7 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion4() {
         Question questionDragAndDrop = new Question();
         questionDragAndDrop.setQuestion("4. Letakkanlah segitiga di kotak nomor 2, sementara trapesium di kotak setelahnya dan belah ketupat di kotak nomor 1");
-        questionDragAndDrop.setImageResources(new int[]{
+        questionDragAndDrop.setQuestionImageResources(new int[]{
                 R.drawable.ic_blue_triangle,//first half items will be the items that dragged
                 R.drawable.ic_yellow_rhombus,
                 R.drawable.ic_brown_trapesium,
@@ -65,7 +62,7 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion3() {
         Question questionDragAndDrop = new Question();
         questionDragAndDrop.setQuestion("3. Drag dan drop benda di bawah sesuai dengan bentuknya");
-        questionDragAndDrop.setImageResources(new int[]{
+        questionDragAndDrop.setQuestionImageResources(new int[]{
                 R.drawable.ic_paint,//first half items will be the items that dragged
                 R.drawable.ic_ball,
                 R.drawable.ic_sandwich,
@@ -84,28 +81,28 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
     }
 
     private Question createQuestion2() {
-        Question question2 = new Question();
-        question2.setQuestion("2. Siapakan aku");
-        question2.setImageResources(new int[]{
+        Question questionInput = new Question();
+        questionInput.setQuestion("2. Siapakan aku");
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_red_circle,
         });
-        question2.setAnswer("Lingkaran");
-        question2.setType(Question.TYPE_INPUT);
-        return question2;
+        questionInput.setAnswer("Lingkaran");
+        questionInput.setType(Question.TYPE_INPUT);
+        return questionInput;
     }
 
     private Question createQuestion1() {
-        Question question1 = new Question();
-        question1.setQuestion("1. Manakah yang bukan merupakan bangun ruang segi empat?");
-        question1.setImageResources(new int[]{
+        Question questionMultipleSelection = new Question();
+        questionMultipleSelection.setQuestion("1. Manakah yang bukan merupakan bangun ruang segi empat?");
+        questionMultipleSelection.setAnswerImageResources(new int[]{
                 R.drawable.ic_purple_rectangular,
                 R.drawable.ic_blue_triangle,
                 R.drawable.ic_yellow_square,
                 R.drawable.ic_yellow_rhombus,
         });
-        question1.setAnswer(1);
-        question1.setType(Question.TYPE_MULTIPLE_SELECTION);
-        return question1;
+        questionMultipleSelection.setAnswer(1);
+        questionMultipleSelection.setType(Question.TYPE_MULTIPLE_SELECTION);
+        return questionMultipleSelection;
     }
 
     @Override
@@ -113,30 +110,4 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider, P
         return questionList;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.questionList);
-    }
-
-    protected BeginnerEasyQuestionListProvider(Parcel in) {
-        this.questionList = new ArrayList<Question>();
-        in.readList(this.questionList, Question.class.getClassLoader());
-    }
-
-    public static final Parcelable.Creator<BeginnerEasyQuestionListProvider> CREATOR = new Parcelable.Creator<BeginnerEasyQuestionListProvider>() {
-        @Override
-        public BeginnerEasyQuestionListProvider createFromParcel(Parcel source) {
-            return new BeginnerEasyQuestionListProvider(source);
-        }
-
-        @Override
-        public BeginnerEasyQuestionListProvider[] newArray(int size) {
-            return new BeginnerEasyQuestionListProvider[size];
-        }
-    };
 }

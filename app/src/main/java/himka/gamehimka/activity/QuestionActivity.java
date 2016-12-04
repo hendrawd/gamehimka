@@ -18,6 +18,7 @@ import himka.gamehimka.question.QuestionListProvider;
 import himka.gamehimka.question.beginner.BeginnerEasyQuestionListProvider;
 import himka.gamehimka.question.beginner.BeginnerHardQuestionListProvider;
 import himka.gamehimka.question.master.MasterEasyQuestionListProvider;
+import himka.gamehimka.question.master.MasterHardQuestionListProvider;
 import himka.gamehimka.question.moderate.ModerateEasyQuestionListProvider;
 import himka.gamehimka.question.moderate.ModerateHardQuestionListProvider;
 import himka.gamehimka.question.teenager.TeenagerEasyQuestionListProvider;
@@ -87,7 +88,11 @@ public abstract class QuestionActivity extends Activity {
                 break;
             default:
                 //master
-                questionListProvider = new MasterEasyQuestionListProvider();
+                if (subLevel.equals("easy")) {
+                    questionListProvider = new MasterEasyQuestionListProvider();
+                } else {
+                    questionListProvider = new MasterHardQuestionListProvider();
+                }
                 break;
         }
         questionList = questionListProvider.getQuestionList();
@@ -114,8 +119,13 @@ public abstract class QuestionActivity extends Activity {
         if (index < questionList.size()) {
             createFragment();
         } else {
-            CustomToast.show(this, "Pertanyaan habis, skor kamu adalah: " + this.score);
-            PreferenceHelper.setLevel(this, PreferenceHelper.getLevel(this) + 1);
+            if (score > 30) {
+                PreferenceHelper.setLevel(this, PreferenceHelper.getLevel(this) + 1);
+                CustomToast.show(this, "Pertanyaan habis, skor kamu adalah: " + this.score + ". Kamu berhasil naik level");
+            } else {
+                CustomToast.show(this, "Pertanyaan habis, skor kamu adalah: " + this.score + ". Kamu gagal naik level");
+            }
+
             goToHomeActivity();
             finish();
         }
@@ -132,5 +142,9 @@ public abstract class QuestionActivity extends Activity {
 
     private void setScore(int score) {
         ((TextView) findViewById(R.id.tv_score)).setText(getString(R.string.score, score));
+    }
+
+    public void setTimeLeft(String timeLeft) {
+        ((TextView) findViewById(R.id.tv_time)).setText(timeLeft);
     }
 }

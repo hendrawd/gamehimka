@@ -1,8 +1,5 @@
 package himka.gamehimka.question.beginner;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
 import himka.gamehimka.R;
@@ -13,7 +10,7 @@ import himka.gamehimka.question.QuestionListProvider;
  * @author hendrawd on 11/29/16
  */
 
-public class BeginnerHardQuestionListProvider implements QuestionListProvider, Parcelable {
+public class BeginnerHardQuestionListProvider implements QuestionListProvider {
 
     private ArrayList<Question> questionList = new ArrayList<>();
 
@@ -45,7 +42,7 @@ public class BeginnerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion3() {
         Question questionDragAndDrop = new Question();
         questionDragAndDrop.setQuestion("3. Drag dan drop bangun ruang berikut dengan jaring - jaringnya");
-        questionDragAndDrop.setImageResources(new int[]{
+        questionDragAndDrop.setQuestionImageResources(new int[]{
                 R.drawable.ic_brown_cube,//first half items will be the items that dragged
                 R.drawable.ic_blue_tube,
                 R.drawable.ic_blue_cuboid,
@@ -66,7 +63,7 @@ public class BeginnerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion2() {
         Question questionInput = new Question();
         questionInput.setQuestion("2. Apakah nama bangun ruang ini?");
-        questionInput.setImageResources(new int[]{
+        questionInput.setQuestionImageResources(new int[]{
                 R.drawable.ic_brown_cube,
         });
         questionInput.setAnswer("kubus");
@@ -77,7 +74,7 @@ public class BeginnerHardQuestionListProvider implements QuestionListProvider, P
     private Question createQuestion1() {
         Question questionMultipleSelection = new Question();
         questionMultipleSelection.setQuestion("1. Manakah yang merupakan bangun ruang tabung?");
-        questionMultipleSelection.setImageResources(new int[]{
+        questionMultipleSelection.setQuestionImageResources(new int[]{
                 R.drawable.ic_blue_tube,
                 R.drawable.ic_blue_cuboid,
                 R.drawable.ic_brown_cube,
@@ -93,30 +90,4 @@ public class BeginnerHardQuestionListProvider implements QuestionListProvider, P
         return questionList;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.questionList);
-    }
-
-    protected BeginnerHardQuestionListProvider(Parcel in) {
-        this.questionList = new ArrayList<Question>();
-        in.readList(this.questionList, Question.class.getClassLoader());
-    }
-
-    public static final Creator<BeginnerHardQuestionListProvider> CREATOR = new Creator<BeginnerHardQuestionListProvider>() {
-        @Override
-        public BeginnerHardQuestionListProvider createFromParcel(Parcel source) {
-            return new BeginnerHardQuestionListProvider(source);
-        }
-
-        @Override
-        public BeginnerHardQuestionListProvider[] newArray(int size) {
-            return new BeginnerHardQuestionListProvider[size];
-        }
-    };
 }

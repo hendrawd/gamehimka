@@ -1,8 +1,5 @@
 package himka.gamehimka.question.moderate;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
 import himka.gamehimka.R;
@@ -13,7 +10,7 @@ import himka.gamehimka.question.QuestionListProvider;
  * @author hendrawd on 11/29/16
  */
 
-public class ModerateEasyQuestionListProvider implements QuestionListProvider, Parcelable {
+public class ModerateEasyQuestionListProvider implements QuestionListProvider {
 
     private ArrayList<Question> questionList = new ArrayList<>();
 
@@ -28,24 +25,21 @@ public class ModerateEasyQuestionListProvider implements QuestionListProvider, P
 
     private Question createQuestion5() {
         Question questionInput = new Question();
-        questionInput.setQuestion("5. Terdapat sepuluh titik pada suatu lingkaran diberi nomor 1 - 10. " +
-                "Seekor katak melompat searah jarum jam satu satuan jika katak berada pada nomor prima dan tiga satuan jika bukan prima. " +
-                "Jika mula - mula katak berada pada poisis nomor 1, dimanakah posisi katak setelah 2014 kali?");
-        questionInput.setImageResources(new int[]{
-                R.drawable.ic_question_10_numbers
-        });
-        questionInput.setAnswer("7");
+        questionInput.setQuestion("5. Hasil dari (123 x 123) : 3 adalah");
+        questionInput.setAnswer("5043");
         questionInput.setType(Question.TYPE_INPUT);
         return questionInput;
     }
 
     private Question createQuestion4() {
         Question questionInput = new Question();
-        questionInput.setQuestion("4. Berapa banyak bangun segitiga yang terbentuk pada gambar di bawah ini?");
-        questionInput.setImageResources(new int[]{
-                R.drawable.ic_yellow_square_x
+        questionInput.setQuestion("4. Isilah berapa banyak jeruk yang dapat menimbangi timbangan terakhir");
+        questionInput.setQuestionImageResources(new int[]{
+                R.drawable.ic_question_fruit1,
+                R.drawable.ic_question_fruit2,
+                R.drawable.ic_question_fruit3
         });
-        questionInput.setAnswer("4");
+        questionInput.setAnswer("10");
         questionInput.setType(Question.TYPE_INPUT);
         return questionInput;
     }
@@ -80,30 +74,4 @@ public class ModerateEasyQuestionListProvider implements QuestionListProvider, P
         return questionList;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(this.questionList);
-    }
-
-    protected ModerateEasyQuestionListProvider(Parcel in) {
-        this.questionList = new ArrayList<Question>();
-        in.readList(this.questionList, Question.class.getClassLoader());
-    }
-
-    public static final Parcelable.Creator<ModerateEasyQuestionListProvider> CREATOR = new Parcelable.Creator<ModerateEasyQuestionListProvider>() {
-        @Override
-        public ModerateEasyQuestionListProvider createFromParcel(Parcel source) {
-            return new ModerateEasyQuestionListProvider(source);
-        }
-
-        @Override
-        public ModerateEasyQuestionListProvider[] newArray(int size) {
-            return new ModerateEasyQuestionListProvider[size];
-        }
-    };
 }

@@ -6,4 +6,5 @@
     <string name="answer_right">Jawaban benar!</string>
     <string name="answer_wrong">Jawaban salah!</string>
     <string name="score">Score : %d</string>
+    <string name="time_has_run_out">Waktu habis!</string>
 </resources>

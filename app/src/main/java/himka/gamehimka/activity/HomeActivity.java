@@ -15,6 +15,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //to unlock all the levels
+        //PreferenceHelper.setLevel(this, 99);
+
         ImageView ivPlay = (ImageView) findViewById(R.id.iv_play);
         ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,11 +10,11 @@ import himka.gamehimka.question.QuestionListProvider;
  * @author hendrawd on 11/29/16
  */
 
-public class MasterEasyQuestionListProvider implements QuestionListProvider {
+public class MasterHardQuestionListProvider implements QuestionListProvider {
 
     private ArrayList<Question> questionList = new ArrayList<>();
 
-    public MasterEasyQuestionListProvider() {
+    public MasterHardQuestionListProvider() {
         questionList.add(createQuestion1());
         questionList.add(createQuestion2());
         questionList.add(createQuestion3());
@@ -24,24 +24,27 @@ public class MasterEasyQuestionListProvider implements QuestionListProvider {
 
     private Question createQuestion5() {
         Question questionInput = new Question();
-        questionInput.setQuestion("5. Berapakah jumlah bola berwarna kuning");
+        questionInput.setQuestion("5. Berapakah jumlah bola berwarna biru?");
         questionInput.setQuestionImageResources(
                 new int[]{
-                        R.drawable.ic_question_balls,
+                        R.drawable.ic_question_balls2,
                 }
         );
-        questionInput.setAnswer("9");
+        questionInput.setAnswer("24");
         questionInput.setType(Question.TYPE_INPUT);
-        questionInput.setTime(5);
+        questionInput.setTime(3);
         return questionInput;
     }
 
     private Question createQuestion4() {
         Question questionMultipleSelection = new Question();
-        questionMultipleSelection.setQuestion("4. Gambar untuk grafik 3x² - 5 adalah");
-        questionMultipleSelection.setAnswerImageResources(new int[]{
-                R.drawable.ic_question_graphic1,
-                R.drawable.ic_question_graphic2,
+        questionMultipleSelection.setQuestion("4. Gambar untuk grafik dari fungsi y = x² – 4x + 3");
+        questionMultipleSelection.setQuestionImageResources(new int[]{
+                R.drawable.ic_answer_function_graphic1,
+                R.drawable.ic_answer_function_graphic2,
+                R.drawable.ic_answer_function_graphic3,
+                R.drawable.ic_answer_function_graphic4,
+                R.drawable.ic_answer_function_graphic5,
         });
         questionMultipleSelection.setAnswer(0);
         questionMultipleSelection.setType(Question.TYPE_MULTIPLE_SELECTION);
@@ -51,36 +54,35 @@ public class MasterEasyQuestionListProvider implements QuestionListProvider {
 
     private Question createQuestion3() {
         Question questionInput = new Question();
-        questionInput.setQuestion("3. Diketahui H = {k|x² -1 < x² + k < 2(x+1) , dengan x dan k bilangan bulat}.\n" +
-                "Banyaknya himpunan bagian dari himpunan H adalah ");
-        questionInput.setAnswer("!");//TODO belom ada jawaban
+        questionInput.setQuestion("3. Diketahui rumus fungsi f adalah f(x) = 4x-2. Jika f(a) = 26, maka nilai a adalah");
+        questionInput.setAnswer("7");
         questionInput.setType(Question.TYPE_INPUT);
         return questionInput;
     }
 
     private Question createQuestion2() {
         Question questionMultipleSelection = new Question();
-        questionMultipleSelection.setQuestion("2. Manakah yang termasuk pencerminan?");
-        questionMultipleSelection.setAnswerImageResources(new int[]{
-                R.drawable.ic_question_mirror1,
-                R.drawable.ic_question_mirror2,
-                R.drawable.ic_question_mirror3,
-                R.drawable.ic_question_mirror4,
+        questionMultipleSelection.setQuestion("2. Manakah yang merupakan lanjutan dari pola gambar di bawah?");
+        questionMultipleSelection.setQuestionImageResources(new int[]{
+                R.drawable.ic_question_pattern
         });
-        questionMultipleSelection.setAnswer(1);
+        questionMultipleSelection.setAnswerImageResources(new int[]{
+                R.drawable.ic_answer_pattern1,
+                R.drawable.ic_answer_pattern2,
+                R.drawable.ic_answer_pattern3,
+                R.drawable.ic_answer_pattern4,
+                R.drawable.ic_answer_pattern5,
+                R.drawable.ic_answer_pattern6,
+        });
+        questionMultipleSelection.setAnswer(0);
         questionMultipleSelection.setType(Question.TYPE_MULTIPLE_SELECTION);
         return questionMultipleSelection;
     }
 
     private Question createQuestion1() {
         Question questionInput = new Question();
-        questionInput.setQuestion("1. Berapakah banyak segitiga yang dapat dibentuk dari gambar ini? Clue: jumlahnya terdiri dari 4 angka.");
-        questionInput.setQuestionImageResources(
-                new int[]{
-                        R.drawable.ic_question_build_triangle
-                }
-        );
-        questionInput.setAnswer("1056");
+        questionInput.setQuestion("1. Rasid adalah seorang montir. Ia mampu memperbaiki sebuah mobil yang rusak dalam waku 3 jam. Berapa banyak mobil yang mampu ia perbaiki selama satu minggu?");
+        questionInput.setAnswer("56");
         questionInput.setType(Question.TYPE_INPUT);
         return questionInput;
     }

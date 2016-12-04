@@ -26,63 +26,75 @@ public class ModerateHardQuestionListProvider implements QuestionListProvider, P
     }
 
     private Question createQuestion5() {
-        Question questionInput = new Question();
-        questionInput.setQuestion("5. Jika yang mempunyai hobi menari sebanyak 20 siswa, maka yang mempunyai hobi membaca ada ... siswa");
-        questionInput.setImageResources(new int[]{
-                R.drawable.ic_question_diagram
+        Question questionMultipleSelection = new Question();
+        questionMultipleSelection.setQuestion("5. Gambar yang manakah yang tidak sesuai dengan gambar-gambar lainnya?");
+        questionMultipleSelection.setAnswerImageResources(new int[]{
+                R.drawable.ic_purple_rectangular,
+                R.drawable.ic_brown_trapesium,
+                R.drawable.ic_yellow_rhombus,
+                R.drawable.ic_blue_triangle,
         });
-        questionInput.setAnswer("25");
-        questionInput.setType(Question.TYPE_INPUT);
-        return questionInput;
+        questionMultipleSelection.setAnswer(3);
+        questionMultipleSelection.setType(Question.TYPE_MULTIPLE_SELECTION);
+        return questionMultipleSelection;
     }
 
     private Question createQuestion4() {
-        Question questionInput = new Question();
-        questionInput.setQuestion("4. Banyak titik pada pola terakhir adalah");
-        questionInput.setImageResources(new int[]{
-                R.drawable.ic_question_triangle_pattern
+        Question questionDragAndDrop = new Question();
+        questionDragAndDrop.setQuestion("4. Drag dan drop nama ke gambar fungsi sehingga sesuai");
+        questionDragAndDrop.setQuestionImageResources(new int[]{
+                R.drawable.ic_answer_cosinus,
+                R.drawable.ic_answer_sinus,
+                R.drawable.ic_answer_tangen,
+                R.drawable.ic_question_tangen,
+                R.drawable.ic_question_sinus,
+                R.drawable.ic_question_cosinus,
         });
-        questionInput.setAnswer("21");
-        questionInput.setType(Question.TYPE_INPUT);
-        return questionInput;
+        questionDragAndDrop.setAnswer(new int[]{
+                R.drawable.ic_answer_tangen,
+                R.drawable.ic_answer_sinus,
+                R.drawable.ic_answer_cosinus,
+        });
+        questionDragAndDrop.setType(Question.TYPE_DRAG_AND_DROP);
+        questionDragAndDrop.setUseSound(true);
+        return questionDragAndDrop;
     }
 
     private Question createQuestion3() {
         Question questionInput = new Question();
-        questionInput.setQuestion("3. Segitiga mana sajakah yang kongruen? Contoh format jawaban: \n3 dengan 7, 1 dengan 2");
-        questionInput.setImageResources(new int[]{
-                R.drawable.ic_question_congruent_triangle
-        });
-        questionInput.setAnswer("3 dengan 7, 6 dengan 8");
+        questionInput.setQuestion("3. Ada percobaan pelemparan dua buah dadu.\nTentukan munculnya angka genap pada dadu pertama dan angka ganjil prima pada dadu kedua!");
+        questionInput.setQuestionImageResources(
+                new int[]{
+                        R.drawable.ic_dadu
+                }
+        );
+        questionInput.setAnswer("1/6");
         questionInput.setType(Question.TYPE_INPUT);
         return questionInput;
     }
 
     private Question createQuestion2() {
-        Question questionDragAndDrop = new Question();
-        questionDragAndDrop.setQuestion("2. Drag dan drop operasi himpunan di bawah agar sesuai");
-        questionDragAndDrop.setImageResources(new int[]{
-                R.drawable.ic_answer_intersection,//first half items will be the items that dragged
-                R.drawable.ic_answer_union,
-                R.drawable.ic_answer_union_no_match,
-
-                R.drawable.ic_question_union,//second half items will be the item that listen the drag
-                R.drawable.ic_question_union_no_match,
-                R.drawable.ic_question_intersection,
-        });
-        questionDragAndDrop.setAnswer(new int[]{
-                R.drawable.ic_answer_union,
-                R.drawable.ic_answer_union_no_match,
-                R.drawable.ic_answer_intersection
-        });
-        questionDragAndDrop.setType(Question.TYPE_DRAG_AND_DROP);
-        return questionDragAndDrop;
+        Question questionInput = new Question();
+        questionInput.setQuestion("2. Umur Jaka 3 tahun lebih tua dari pada umur Dito. Jika jumlah umur mereka 27 tahun, maka berapa tahunkah umur Jaka?");
+        questionInput.setAnswer("15");
+        questionInput.setType(Question.TYPE_INPUT);
+        return questionInput;
     }
 
     private Question createQuestion1() {
         Question questionInput = new Question();
-        questionInput.setQuestion("1. Urutkanlah bilangan berikut dari yang terkecil hingga terbesar!\n0,167;1/7;1/2;0,2;0,33;25%;");
-        questionInput.setAnswer("1/7;0,167;0,2;25%;0,33;1/2");
+        questionInput.setQuestion("1. Jumlahkan semua kubus yang ada dalam gambar");
+        questionInput.setQuestionImageResources(
+                new int[]{
+                        R.drawable.ic_kubus1,
+                        R.drawable.ic_kubus2,
+                        R.drawable.ic_kubus3,
+                        R.drawable.ic_kubus4,
+                        R.drawable.ic_kubus5,
+                        R.drawable.ic_kubus6,
+                }
+        );
+        questionInput.setAnswer("39");
         questionInput.setType(Question.TYPE_INPUT);
         return questionInput;
     }

@@ -15,6 +15,12 @@
             android:layout_margin="8dp" />
 
         <himka.gamehimka.view.PredicateLayout
+            android:id="@+id/question_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"/>
+
+        <himka.gamehimka.view.PredicateLayout
             android:id="@+id/answer_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

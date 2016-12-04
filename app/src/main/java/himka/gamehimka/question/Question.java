@@ -16,9 +16,13 @@ public class Question {
     //this should be multiple object type
     private Object answer;
 
-    private int[] imageResources;
+    private int[] questionImageResources;
+
+    private int[] answerImageResources;
 
     private boolean useSound;
+
+    private int time;
 
     public String getType() {
         return type;
@@ -44,12 +48,20 @@ public class Question {
         this.answer = answer;
     }
 
-    public int[] getImageResources() {
-        return imageResources;
+    public int[] getQuestionImageResources() {
+        return questionImageResources;
     }
 
-    public void setImageResources(int[] imageResources) {
-        this.imageResources = imageResources;
+    public void setQuestionImageResources(int[] questionImageResources) {
+        this.questionImageResources = questionImageResources;
+    }
+
+    public int[] getAnswerImageResources() {
+        return answerImageResources;
+    }
+
+    public void setAnswerImageResources(int[] answerImageResources) {
+        this.answerImageResources = answerImageResources;
     }
 
     public boolean isUseSound() {
@@ -58,5 +70,13 @@ public class Question {
 
     public void setUseSound(boolean useSound) {
         this.useSound = useSound;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }

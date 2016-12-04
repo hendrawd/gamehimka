@@ -72,6 +72,7 @@ public class TextToSpeechHelper {
 
     public void stop() {
         textToSpeech.stop();
+        textToSpeech.shutdown();
     }
 
     @SuppressWarnings("deprecation")

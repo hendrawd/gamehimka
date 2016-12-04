@@ -54,14 +54,6 @@
         </activity>
 
         <activity
-            android:name=".activity.MultipleImageSelectionActivity"
-            android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="himka.gamehimka.soal.PilihanGandaActivity" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".activity.SpeechToTextExampleActivity"
             android:screenOrientation="landscape">
             <intent-filter>
