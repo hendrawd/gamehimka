@@ -1,16 +1,16 @@
 package himka.gamehimka.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import himka.gamehimka.R;
 import himka.gamehimka.util.PreferenceHelper;
 
-public class LevelSelectionActivity extends AppCompatActivity implements View.OnClickListener {
+public class LevelSelectionActivity extends Activity implements View.OnClickListener {
 
     /**
      * Method yang dipanggil ketika Activity dibuat
