@@ -27,6 +27,7 @@ public class SubLevelSelectionActivity extends Activity {
 
         //Mendapatkan variable yang dipassing dari LevelActivity
         final String level = getIntent().getStringExtra("level");
+
         switch (level) {
             case "beginner":
                 //Set gambar dengan ic_menu_level_beginner

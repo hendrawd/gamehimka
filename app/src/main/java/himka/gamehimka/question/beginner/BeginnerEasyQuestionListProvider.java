@@ -95,10 +95,10 @@ public class BeginnerEasyQuestionListProvider implements QuestionListProvider{
         Question questionMultipleSelection = new Question();
         questionMultipleSelection.setQuestion("1. Manakah yang bukan merupakan bangun ruang segi empat?");
         questionMultipleSelection.setAnswerImageResources(new int[]{
-                R.drawable.ic_purple_rectangular,
-                R.drawable.ic_blue_triangle,
-                R.drawable.ic_yellow_square,
-                R.drawable.ic_yellow_rhombus,
+                R.drawable.ic_purple_rectangular,//0
+                R.drawable.ic_blue_triangle,//1
+                R.drawable.ic_yellow_square,//2
+                R.drawable.ic_yellow_rhombus,//3
         });
         questionMultipleSelection.setAnswer(1);
         questionMultipleSelection.setType(Question.TYPE_MULTIPLE_SELECTION);

@@ -6,7 +6,6 @@ import himka.gamehimka.R;
 
 /**
  * @author hendrawd on 11/29/16
- * TODO tambah skor di kanan atas
  */
 
 public class EasyQuestionActivity extends QuestionActivity {
