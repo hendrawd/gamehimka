@@ -25,7 +25,7 @@ Solution:
 
 * Uncheck "Use embedded JDK (recommended)"
 
-![screen shot 2016-12-05 at 12 16 30 pm](https://cloud.githubusercontent.com/assets/9481791/20874550/8605c198-bae5-11e6-8ee7-02463dc1781e.png)
+![screen shot 2016-12-05 at 12 34 47 pm](https://cloud.githubusercontent.com/assets/9481791/20874695/e1fd774c-bae6-11e6-9122-a05792e23ad9.png)
 
 * Fill the box below with your home JDK path that you have installed, usually in `C:\Program Files\Java\jdk1.8.x`
 
@@ -78,7 +78,7 @@ Solusi:
 
 * Hapus centang "Use embedded JDK (recommended)"
 
-![screen shot 2016-12-05 at 12 16 30 pm](https://cloud.githubusercontent.com/assets/9481791/20874550/8605c198-bae5-11e6-8ee7-02463dc1781e.png)
+![screen shot 2016-12-05 at 12 34 47 pm](https://cloud.githubusercontent.com/assets/9481791/20874695/e1fd774c-bae6-11e6-9122-a05792e23ad9.png)
 
 * Isi box di bawahnya dengan path utama JDK yang telah kamu install, biasanya di `C:\Program Files\Java\jdk1.8.x`
 
