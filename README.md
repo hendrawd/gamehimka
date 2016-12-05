@@ -20,7 +20,13 @@ Solution:
 * Install it to your computer
 * Open your project on Android Studio
 * Navigate to File>Project Structure>SDK Location
+
+![screen shot 2016-12-05 at 12 15 58 pm](https://cloud.githubusercontent.com/assets/9481791/20874547/83b71e14-bae5-11e6-944b-b7f4677a0cf2.png)
+
 * Uncheck "Use embedded JDK (recommended)"
+
+![screen shot 2016-12-05 at 12 16 30 pm](https://cloud.githubusercontent.com/assets/9481791/20874550/8605c198-bae5-11e6-8ee7-02463dc1781e.png)
+
 * Fill the box below with your home JDK path that you have installed, usually in `C:\Program Files\Java\jdk1.8.x`
 
 ###Unable to start the daemon process
@@ -41,6 +47,8 @@ Solution:
 
 * Open project structure>Android>Gradle Scripts>gradle.properties
 * Locate `org.gradle.jvmargs=-Xmx1536m` and try to lower it's value, like `org.gradle.jvmargs=-Xmx256m`
+
+![screen shot 2016-12-05 at 12 15 35 pm](https://cloud.githubusercontent.com/assets/9481791/20874546/81556d06-bae5-11e6-8aca-6e6dda331079.png)
 
 If you have more problem, please create issue here or email me directly at hendraz_88@yahoo.co.id
 
@@ -65,7 +73,13 @@ Solusi:
 * Install JDK tersebut ke komputer kamu
 * Buka proyek ini dengan Android Studio
 * Buka File>Project Structure>SDK Location
+
+![screen shot 2016-12-05 at 12 15 58 pm](https://cloud.githubusercontent.com/assets/9481791/20874547/83b71e14-bae5-11e6-944b-b7f4677a0cf2.png)
+
 * Hapus centang "Use embedded JDK (recommended)"
+
+![screen shot 2016-12-05 at 12 16 30 pm](https://cloud.githubusercontent.com/assets/9481791/20874550/8605c198-bae5-11e6-8ee7-02463dc1781e.png)
+
 * Isi box di bawahnya dengan path utama JDK yang telah kamu install, biasanya di `C:\Program Files\Java\jdk1.8.x`
 
 ###Unable to start the daemon process
@@ -86,5 +100,7 @@ Solusi:
 
 * Buka Project structure>Android>Gradle Scripts>gradle.properties
 * Temukan `org.gradle.jvmargs=-Xmx1536m` dan coba untuk mengurangi nilainya, seperti `org.gradle.jvmargs=-Xmx256m`
+
+![screen shot 2016-12-05 at 12 15 35 pm](https://cloud.githubusercontent.com/assets/9481791/20874546/81556d06-bae5-11e6-8aca-6e6dda331079.png)
 
 Kalau ada masalah lain, silakan buat issue baru di sini atau email saya secara langsung di hendraz_88@yahoo.co.id
