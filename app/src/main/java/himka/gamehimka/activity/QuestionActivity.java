@@ -119,7 +119,7 @@ public abstract class QuestionActivity extends Activity {
         if (index < questionList.size()) {
             createFragment();
         } else {
-            if (score > 30) {
+            if (this.score > 30) {
                 PreferenceHelper.setLevel(this, PreferenceHelper.getLevel(this) + 1);
                 CustomToast.show(this, "Pertanyaan habis, skor kamu adalah: " + this.score + ". Kamu berhasil naik level");
             } else {
