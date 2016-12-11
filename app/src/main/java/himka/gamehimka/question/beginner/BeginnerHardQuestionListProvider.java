@@ -74,7 +74,7 @@ public class BeginnerHardQuestionListProvider implements QuestionListProvider {
     private Question createQuestion1() {
         Question questionMultipleSelection = new Question();
         questionMultipleSelection.setQuestion("1. Manakah yang merupakan bangun ruang tabung?");
-        questionMultipleSelection.setQuestionImageResources(new int[]{
+        questionMultipleSelection.setAnswerImageResources(new int[]{
                 R.drawable.ic_blue_tube,
                 R.drawable.ic_blue_cuboid,
                 R.drawable.ic_brown_cube,
