@@ -1,6 +1,6 @@
 # gamehimka
 
-##Language/Bahasa
+## Language/Bahasa
 
 For English version, click [here](#english-version)
 
@@ -8,7 +8,7 @@ Untuk versi bahasa Indonesia, klik di [sini](#versi-bahasa-indonesia)
 
 Download the apk directly from [here](https://github.com/hendrawd/gamehimka/blob/master/app/build/outputs/apk/app-debug.apk)
 
-##English version
+## English version
 
 This is the Android project for IAIN workshop, 4 December 2016
 
@@ -16,7 +16,7 @@ Android Studio version used: 2.2.2
 
 Please make sure you have a stable internet connection to run the project. Android Studio will need to download build tool, Android SDK or maybe another dependencies from the internet.
 
-###Common problems:
+### Common problems:
 
 #### ☞ Error 216:
 
@@ -61,7 +61,7 @@ Solution:
 If you have more problem, please create issue here or email me directly at hendraz_88@yahoo.co.id
 
 ---
-##Versi Bahasa Indonesia
+## Versi Bahasa Indonesia
 
 Ini adalah proyek Android untuk workshop IAIN, 4 Desember 2016
 
@@ -69,7 +69,7 @@ Versi Android Studio yang dipakai: 2.2.2
 
 Pastikan kamu mempunyai koneksi internet yang stabil untuk menjalankan proyek ini. Android Studio akan butuh untuk mendownload build tool, Android SDK atau mungkin dependency yang lain melalui internet.
 
-###Masalah yang mungkin terjadi:
+### Masalah yang mungkin terjadi:
 
 #### ☞ Error 216:
 
