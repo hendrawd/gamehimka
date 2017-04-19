@@ -6,6 +6,8 @@ For English version, click [here](#english-version)
 
 Untuk versi bahasa Indonesia, klik di [sini](#versi-bahasa-indonesia)
 
+Download the apk directly from [here](https://github.com/hendrawd/gamehimka/blob/master/app/build/outputs/apk/app-debug.apk)
+
 ##English version
 
 This is the Android project for IAIN workshop, 4 December 2016
